@@ -4,14 +4,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <title>Juan Choice</title>
   </head>
-  <body>
+  <body ng-controller="ChoiceController as choice">
+    <header>
+      <h1 class="text-center">There Is Only JUAN Choice</h1>
+    </header>
+    <!-- Person Container -->
+    <section class="pull-left">
+      <div ng-repeat="person in choice.person">
+        <img ng-src="{{person.image}}" alt="" />
+        <h1 class="text-center">{{person.name}}</h1>
+      </div>
+
+
+    </section>
+    <!-- tabs -->
+    <!-- <section  ng-controller="PanelController as panel">
+      <ul class="nav-pills, list">
+        <li ng-class="{active:panel.isSelected(1)}">
+          <a href ng-click="panel.selectTab(1)">Intro</a>
+        </li>
+        <li ng-class="{active:panel.isSelected(2)}">
+          <a href ng-click="panel.selectTab(2)">Skills</a>
+        </li>
+        <li ng-class="{active:panel.isSelected(3)}">
+          <a href ng-click="panel.selectTab(3)">Contact</a>
+        </li>
+      </ul>
+      <div class="panel" ng-show="panel.isSelected(1)">
+        <h4>Intro</h4>
+        <p>{{choice.person.intro}}</p>
+      </div>
+    </section> -->
+
+
 
 
   </body>
