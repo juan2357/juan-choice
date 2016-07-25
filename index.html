@@ -14,32 +14,36 @@
       <h1 class="text-center">There Is Only JUAN Choice</h1>
     </header>
     <!-- Person Container -->
-    <section class="pull-left">
+    <section>
       <div ng-repeat="person in choice.person">
         <img ng-src="{{person.image}}" alt="" />
         <h1 class="text-center">{{person.name}}</h1>
       </div>
-
-
     </section>
     <!-- tabs -->
-    <!-- <section  ng-controller="PanelController as panel">
-      <ul class="nav-pills, list">
-        <li ng-class="{active:panel.isSelected(1)}">
-          <a href ng-click="panel.selectTab(1)">Intro</a>
-        </li>
-        <li ng-class="{active:panel.isSelected(2)}">
-          <a href ng-click="panel.selectTab(2)">Skills</a>
-        </li>
-        <li ng-class="{active:panel.isSelected(3)}">
-          <a href ng-click="panel.selectTab(3)">Contact</a>
-        </li>
+    <section class="tab" ng-controller="TabController as tab">
+      <ul class="nav nav-pills">
+        <li ng-class="{active: tab.isSet(1)}">
+          <a href ng-click="tab.setTab(1)">Intro</a></li>
+        <li ng-class="{active: tab.isSet(2)}">
+          <a href ng-click="tab.setTab(2)">Skills</a></li>
+        <li ng-class="{active: tab.isSet(3)}">
+          <a href ng-click="tab.setTab(3)">Contact</a></li>
       </ul>
-      <div class="panel" ng-show="panel.isSelected(1)">
+      <div class="tab" ng-show="tab.isSet(1)" ng-repeat="person in choice.person">
         <h4>Intro</h4>
-        <p>{{choice.person.intro}}</p>
+        <blockquote>{{person.intro}}</blockquote>
       </div>
-    </section> -->
+      <div class="tab" ng-show="tab.isSet(2)">
+        <h4>Skills</h4>
+        <blockquote>{{person.skills}}</blockquote>
+      </div>
+      <div class="tab" ng-show="tab.isSet(3)">
+        <h4>Contact</h4>
+        <blockquote>{{person.email}}</blockquote>
+      </div>
+    </section>
+    </section>
 
 
 
