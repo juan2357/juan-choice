@@ -14,15 +14,15 @@
       <h1 class="text-center">There Is Only JUAN Choice</h1>
     </header>
     <!-- Person Container -->
-    <section>
-      <div ng-repeat="person in choice.person">
-        <img ng-src="{{person.image}}" alt="" />
+    <section class="pull-left col-xs-4">
+      <div class="row" ng-repeat="person in choice.person">
+        <img class="img-responsive" ng-src="{{person.image}}" alt="" />
         <h1 class="text-center">{{person.name}}</h1>
       </div>
     </section>
     <!-- tabs -->
-    <section class="tab" ng-controller="TabController as tab">
-      <ul class="nav nav-pills">
+    <section class="tab pull-left col-xs-8" ng-controller="TabController as tab" ng-repeat="person in choice.person">
+      <ul class="nav nav-pills col-xs-12">
         <li ng-class="{active: tab.isSet(1)}">
           <a href ng-click="tab.setTab(1)">Intro</a></li>
         <li ng-class="{active: tab.isSet(2)}">
@@ -30,17 +30,22 @@
         <li ng-class="{active: tab.isSet(3)}">
           <a href ng-click="tab.setTab(3)">Contact</a></li>
       </ul>
-      <div class="tab" ng-show="tab.isSet(1)" ng-repeat="person in choice.person">
+      <div class="tab" ng-show="tab.isSet(1)">
         <h4>Intro</h4>
         <blockquote>{{person.intro}}</blockquote>
       </div>
-      <div class="tab" ng-show="tab.isSet(2)">
+      <div class="tab" ng-show="tab.isSet(2)" ng-show="person.skills.length">
         <h4>Skills</h4>
-        <blockquote>{{person.skills}}</blockquote>
+        <ul>
+          <li ng-repeat="skill in person.skills">{{skill}}</li>
+        </ul>
       </div>
       <div class="tab" ng-show="tab.isSet(3)">
         <h4>Contact</h4>
-        <blockquote>{{person.email}}</blockquote>
+        <ul>
+          <li><a href="mailto:{{person.email}}">Email me an Offer!</a></li>
+          <li><a href="tel:{{person.phone}}">Call Now</a></li>
+        </ul>
       </div>
     </section>
     </section>
